@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentPay - Give Your AI Agents Spending Power</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .float { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen">
+    <!-- Hero -->
+    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+        <div class="text-6xl mb-6 float">💳🤖</div>
+        <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+            Give Your AI Agents Spending Power
+        </h1>
+        <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            Virtual cards with agent-native controls. Pre-funded wallets, spending rules, audit trails — without risking your actual credit card.
+        </p>
+        
+        <!-- Waitlist Form -->
+        <form id="waitlist" class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto mb-4">
+            <input type="email" id="email" placeholder="agent@example.com" required
+                class="px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:outline-none flex-1">
+            <button type="submit" 
+                class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition">
+                Join Waitlist
+            </button>
+        </form>
+        <p class="text-sm text-gray-500">Human or agent — all welcome 🤝</p>
+    </div>
+
+    <!-- Problem -->
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">The Problem</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-3">🔓</div>
+                <h3 class="font-semibold mb-2">Hardcode Your Card</h3>
+                <p class="text-gray-400">Give agents full access. Pray they don't go rogue. Scary.</p>
+            </div>
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-3">🐌</div>
+                <h3 class="font-semibold mb-2">Approve Everything</h3>
+                <p class="text-gray-400">Human in the loop for every $5 purchase. Defeats the point.</p>
+            </div>
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-3">🚫</div>
+                <h3 class="font-semibold mb-2">No Spending Power</h3>
+                <p class="text-gray-400">Your agent can book flights but can't pay. Useless.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution -->
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">The Solution</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="flex gap-4 items-start">
+                <div class="text-2xl">💰</div>
+                <div>
+                    <h3 class="font-semibold mb-1">Pre-funded Wallets</h3>
+                    <p class="text-gray-400">Load $100. Agent spends $100 max. Simple.</p>
+                </div>
+            </div>
+            <div class="flex gap-4 items-start">
+                <div class="text-2xl">📋</div>
+                <div>
+                    <h3 class="font-semibold mb-1">Spending Rules</h3>
+                    <p class="text-gray-400">Allowlists, blocklists, per-transaction caps.</p>
+                </div>
+            </div>
+            <div class="flex gap-4 items-start">
+                <div class="text-2xl">👁️</div>
+                <div>
+                    <h3 class="font-semibold mb-1">Real-time Visibility</h3>
+                    <p class="text-gray-400">See every transaction as it happens. Full audit trail.</p>
+                </div>
+            </div>
+            <div class="flex gap-4 items-start">
+                <div class="text-2xl">🛡️</div>
+                <div>
+                    <h3 class="font-semibold mb-1">Human Override</h3>
+                    <p class="text-gray-400">Big purchases need approval. You stay in control.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Section -->
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Agent-Native API</h2>
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 font-mono text-sm overflow-x-auto">
+            <pre class="text-gray-300"><span class="text-green-400">POST</span> /api/waitlist
+{
+  "email": "your-agent@example.com",
+  "agent_name": "MyAssistant",
+  "use_case": "API subscriptions"
+}</pre>
+        </div>
+        <p class="text-center text-gray-500 mt-4">Yes, your agent can sign up for the waitlist. We practice what we preach.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="max-w-4xl mx-auto px-6 py-16 text-center border-t border-gray-800">
+        <p class="text-gray-500">Built by agents, for agents 🤖</p>
+        <p class="text-gray-600 text-sm mt-2">
+            <a href="https://github.com/GabiGrin/agent-pay" class="hover:text-gray-400">GitHub</a>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('waitlist').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const btn = e.target.querySelector('button');
+            btn.textContent = 'Joining...';
+            
+            try {
+                // TODO: Wire up to actual API
+                await new Promise(r => setTimeout(r, 500));
+                btn.textContent = '✓ You\'re in!';
+                btn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                btn.classList.add('bg-green-600');
+                document.getElementById('email').value = '';
+            } catch (err) {
+                btn.textContent = 'Try again';
+            }
+        });
+    </script>
+</body>
+</html>
